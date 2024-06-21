@@ -58,6 +58,7 @@ INSERT INTO envio (envio_id, paquete_id, cliente_id, sucursal_id, fecha) VALUES
 
 <h2> Caso de Uso 8: Registrar un Nuevo Vehículo</h2> 
 Descripción: Un administrador desea agregar un nuevo vehículo a la base de datos.
+
 ```sql
 INSERT INTO vehiculo (vehiculo_id, placa, modelo_id) VALUES
 (7, 'IIK-903', 3);
@@ -65,6 +66,7 @@ INSERT INTO vehiculo (vehiculo_id, placa, modelo_id) VALUES
 
 <h2> Caso de Uso 9: Registrar un Nuevo Conductor</h2> 
 Descripción: Un administrador desea agregar un nuevo conductor a la base de datos.
+
 ```sql
 INSERT INTO conductor (conductor_id, nombre, licencia) VALUES
 (7, 'Laura Torres', 'DSF78764');
@@ -74,6 +76,7 @@ INSERT INTO conductor (conductor_id, nombre, licencia) VALUES
 Conductor</h2> 
 Descripción: Un administrador desea agregar un número de teléfono para un conductor
 existente.
+
 ```sql
 INSERT INTO telefono_conductor (telefono_id, conductor_id, telefono) VALUES
 (7, 7, '+57 30023545678');
@@ -83,6 +86,7 @@ INSERT INTO telefono_conductor (telefono_id, conductor_id, telefono) VALUES
 Vehículo</h2> 
 Descripción: Un administrador desea asignar un conductor a una ruta específica utilizando un
 vehículo.
+
 ```sql
 INSERT INTO asignacion_ruta (asignacion_id, ruta_id, conductor_id, vehiculo_id, auxiliar_id) VALUES
 (7, 7, 7, 7, 4);
@@ -90,12 +94,14 @@ INSERT INTO asignacion_ruta (asignacion_id, ruta_id, conductor_id, vehiculo_id, 
 
 <h2> Caso de Uso 12: Registrar un Nuevo Auxiliar</h2> 
 Descripción: Un administrador desea agregar un nuevo auxiliar de reparto a la base de datos.
+
 ```sql
 
 ```
 
 <h2> Caso de Uso 13: Asignar un Auxiliar a una Ruta</h2> 
 Descripción: Un administrador desea asignar un auxiliar de reparto a una ruta específica.
+
 ```sql
 
 ```
@@ -103,6 +109,7 @@ Descripción: Un administrador desea asignar un auxiliar de reparto a una ruta e
 <h2> Caso de Uso 14: Registrar un Evento de Seguimiento para un
 Paquete</h2> 
 Descripción: Un administrador desea registrar un evento de seguimiento para un paquete.
+
 ```sql
 c
 ```
@@ -110,16 +117,19 @@ c
 <h2> Caso de Uso 15: Generar un Reporte de Envíos por Cliente</h2> 
 Descripción: Un administrador desea generar un reporte de todos los envíos realizados por un
 cliente específico.
+
 ```sql
 c
 ```
 <h2> Caso de Uso 16: Actualizar el Estado de un Paquete</h2> 
 Descripción: Un administrador desea actualizar el estado de un paquete específico.
+
 ```sql
 c
 ```
 <h2> Caso de Uso 17: Rastrear la Ubicación Actual de un Paquete</h2> 
 Descripción: Un administrador desea rastrear la ubicación actual de un paquete específico.
+
 ```sql
 c
 ```
@@ -128,6 +138,7 @@ c
 <h2> Caso de Uso 1: Obtener Información Completa de Envíos</h2>
 Descripción: Un administrador desea obtener la información completa de todos los envíos,
 incluyendo detalles del cliente, paquete, ruta, conductor, y sucursal.
+
 ```sql
 SELECT
 ```
@@ -137,6 +148,7 @@ SELECT
 <h2> Caso de Uso 2: Obtener Historial de Envíos de un Cliente</h2> 
 Descripción: Un administrador desea obtener el historial completo de envíos de un cliente
 específico, incluyendo detalles de los paquetes y los eventos de seguimiento.
+
 ```sql
 c
 ```
@@ -144,6 +156,7 @@ c
 <h2> Caso de Uso 3: Listar Conductores y sus Rutas Asignadas</h2> 
 Descripción: Un administrador desea obtener una lista de todos los conductores y las rutas a las
 que están asignados, incluyendo detalles del vehículo utilizado y la sucursal correspondiente.
+
 ```sql
 c
 ```
@@ -152,6 +165,7 @@ c
 Asignados</h2> 
 Descripción: Un administrador desea obtener detalles de todas las rutas, incluyendo los
 auxiliares asignados a cada ruta.
+
 ```sql
 c
 ```
@@ -160,6 +174,7 @@ c
 Estado</h2> 
 Descripción: Un administrador desea generar un reporte de todos los paquetes agrupados por
 sucursal y estado.
+
 ```sql
 c
 ```
@@ -168,6 +183,7 @@ c
 y su Historial de Seguimiento</h2> 
 Descripción: Un administrador desea obtener la información completa de un paquete específico
 y su historial de seguimiento.
+
 ```sql
 c
 ```
@@ -177,6 +193,7 @@ c
 Rango de Fechas</h2> 
 Descripción: Un administrador desea obtener todos los paquetes que fueron enviados dentro de
 un rango de fechas específico.
+
 ```sql
 SELECT 
 	p.paquete_id,
@@ -192,6 +209,7 @@ WHERE e.fecha BETWEEN '2024-06-16 08:00:00' AND '2024-06-21 10:00:00';
 <h2> Caso de Uso 2: Obtener Paquetes con Ciertos Estados</h2> 
 Descripción: Un administrador desea obtener todos los paquetes que tienen ciertos estados
 específicos (por ejemplo, 'en tránsito' o 'entregado').
+
 ```sql
 
 ```
@@ -199,6 +217,7 @@ específicos (por ejemplo, 'en tránsito' o 'entregado').
 <h2> Caso de Uso 3: Obtener Paquetes Excluyendo Ciertos Estados</h2> 
 Descripción: Un administrador desea obtener todos los paquetes excluyendo aquellos que tienen
 ciertos estados específicos (por ejemplo, 'recibido' o 'retenido en aduana').
+
 ```sql
 c
 ```
@@ -207,6 +226,7 @@ c
 Dentro de un Rango de Fechas</h2> 
 Descripción: Un administrador desea obtener todos los clientes que realizaron envíos dentro de
 un rango de fechas específico.
+
 ```sql
 c
 ```
@@ -215,6 +235,7 @@ c
 Están Asignados a Ciertas Rutas</h2> 
 Descripción: Un administrador desea obtener todos los conductores que no están asignados a
 ciertas rutas específicas.
+
 ```sql
 c
 ```
@@ -232,6 +253,7 @@ c
 Específicas</h2> 
 Descripción: Un administrador desea obtener todos los auxiliares de reparto que están
 asignados a ciertas rutas específicas.
+
 ```sql
 c
 ```
@@ -249,6 +271,7 @@ c
 Rango de Fechas</h2> 
 Descripción: Un administrador desea obtener todos los eventos de seguimiento de paquetes que
 ocurrieron dentro de un rango de fechas específico.
+
 ```sql
 c
 ```
@@ -259,5 +282,5 @@ Descripción: Un administrador desea obtener todos los clientes que tienen paque
 tipos específicos (por ejemplo, 'nacional' o 'internacional').
 
 ```sql
-c
+
 ```
