@@ -1,13 +1,12 @@
--- Tabla país-----
-------------------
+CREATE DATABASE logistica_y_envios;
+USE logistica_y_envios;
+
 CREATE TABLE pais (
     pais_id INT,
     nombre VARCHAR(100) NOT NULL,
     CONSTRAINT pk_pais_id PRIMARY KEY (pais_id)
 );
 
--- Tabla ciudad---
-------------------
 CREATE TABLE ciudad (
     ciudad_id INT,
     nombre VARCHAR(100) NOT NULL,
@@ -16,8 +15,6 @@ CREATE TABLE ciudad (
     CONSTRAINT fk_ciudad_pais FOREIGN KEY (pais_id) REFERENCES pais(pais_id)
 );
 
--- Tabla sucursal-
-------------------
 CREATE TABLE sucursal (
     sucursal_id INT,
     nombre VARCHAR(100) NOT NULL,
@@ -27,8 +24,6 @@ CREATE TABLE sucursal (
     CONSTRAINT fk_sucursal_ciudad FOREIGN KEY (ciudad_id) REFERENCES ciudad(ciudad_id)
 );
 
--- Tabla cliente--
-------------------
 CREATE TABLE cliente (
     cliente_id INT,
     nombre VARCHAR(30) NOT NULL,
@@ -38,8 +33,6 @@ CREATE TABLE cliente (
     CONSTRAINT pk_cliente_id PRIMARY KEY (cliente_id)
 );
 
--- Tabla telefono_cliente-
---------------------------
 CREATE TABLE telefono_cliente (
     telefono_id INT AUTO_INCREMENT,
     cliente_id INT,
@@ -48,16 +41,12 @@ CREATE TABLE telefono_cliente (
     CONSTRAINT fk_telefono_cliente_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(cliente_id)
 );
 
--- Tabla tipo_servicio-
------------------------
 CREATE TABLE tipo_servicio (
     tipo_servicio_id INT,
     nombre VARCHAR(100) NOT NULL,
     CONSTRAINT pk_tipo_id PRIMARY KEY (tipo_servicio_id)
 );
 
--- Tabla paquete--
-------------------
 CREATE TABLE paquete (
     paquete_id INT,
     numero_seguimiento VARCHAR(50) NOT NULL UNIQUE,
@@ -71,8 +60,6 @@ CREATE TABLE paquete (
     CONSTRAINT fk_paquete_tipo_servicio FOREIGN KEY (tipo_servicio_id) REFERENCES tipo_servicio(tipo_servicio_id)
 );
 
--- Tabla envio----
-------------------
 CREATE TABLE envio (
     envio_id INT,
     paquete_id INT,
@@ -85,8 +72,6 @@ CREATE TABLE envio (
     CONSTRAINT fk_paquete_sucursal FOREIGN KEY (sucursal_id) REFERENCES sucursal(sucursal_id)
 );
 
--- Tabla seguimiento-
----------------------
 CREATE TABLE seguimiento (
     seguimiento_id INT,
     paquete_id INT,
@@ -98,16 +83,12 @@ CREATE TABLE seguimiento (
     CONSTRAINT fk_seguimiento_paquete FOREIGN KEY (paquete_id) REFERENCES paquete(paquete_id)
 );
 
--- Tabla ruta-----
-------------------
 CREATE TABLE ruta (
     ruta_id INT,
     descripcion VARCHAR(255) NOT NULL,
     CONSTRAINT pk_ruta_id PRIMARY KEY (ruta_id)
 );
 
--- Tabla conductor--
---------------------
 CREATE TABLE conductor (
     conductor_id INT,
     nombre VARCHAR(30) NOT NULL,
@@ -115,37 +96,29 @@ CREATE TABLE conductor (
     CONSTRAINT pk_conductor_id PRIMARY KEY (conductor_id)
 );
 
--- Tabla telefono_conductor--
------------------------------
 CREATE TABLE telefono_conductor (
-    telefono_id INT AUTO_INCREMENT,https://accounts.google.com/SignOutOptions?hl=es-419&continue=https://classroom.google.com/&ec=GBRAiQI
+    telefono_id INT AUTO_INCREMENT,
     conductor_id INT,
     telefono VARCHAR(20) NOT NULL,
     CONSTRAINT pk_telefono_id PRIMARY KEY (telefono_id),
     CONSTRAINT fk_telefono_conductor_conductor FOREIGN KEY (conductor_id) REFERENCES conductor(conductor_id)
 );
 
--- Tabla conductor_ruta--
--------------------------
 CREATE TABLE conductor_ruta (
     conductor_ruta_id INT AUTO_INCREMENT,
     conductor_id INT,
     ruta_id INT,
-    CONSTRAINT pk_conductor_ruta_id PRIMARY KEY (conductor_ruta_id)
+    CONSTRAINT pk_conductor_ruta_id PRIMARY KEY (conductor_ruta_id),
     CONSTRAINT fk_conductor_ruta_conductor FOREIGN KEY (conductor_id) REFERENCES conductor(conductor_id),
     CONSTRAINT fk_conductor_ruta_ruta FOREIGN KEY (ruta_id) REFERENCES ruta(ruta_id)
 );
 
--- Tabla marca---
------------------
 CREATE TABLE marca (
     marca_id INT AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     CONSTRAINT pk_marca_id PRIMARY KEY (marca_id)
 );
 
--- Tabla modelo--
------------------
 CREATE TABLE modelo (
     modelo_id INT AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
@@ -154,8 +127,6 @@ CREATE TABLE modelo (
     CONSTRAINT fk_modelo_marca FOREIGN KEY (marca_id) REFERENCES marca(marca_id)
 );
 
---tabla vehiculo-
------------------
 CREATE TABLE vehiculo (
     vehiculo_id INT AUTO_INCREMENT,
     placa VARCHAR(20) NOT NULL UNIQUE,
@@ -164,16 +135,12 @@ CREATE TABLE vehiculo (
     CONSTRAINT fk_vehiculo_modelo FOREIGN KEY (modelo_id) REFERENCES modelo(modelo_id)
 );
 
--- Tabla auxiliar-
-------------------
 CREATE TABLE auxiliar (
     auxiliar_id INT,
     nombre VARCHAR(100) NOT NULL,
     CONSTRAINT pk_auxiliar_id PRIMARY KEY (auxiliar_id)
 );
 
--- Tabla asignacion_ruta-
--------------------------
 CREATE TABLE asignacion_ruta (
     asignacion_id INT,
     ruta_id INT,
@@ -187,8 +154,6 @@ CREATE TABLE asignacion_ruta (
     CONSTRAINT fk_asignacion_ruta_auxiliar FOREIGN KEY (auxiliar_id) REFERENCES auxiliar(auxiliar_id)
 );
 
--- Tabla envio_asignacion-
---------------------------
 CREATE TABLE envio_asignacion (
     envio_asignacion_id INT AUTO_INCREMENT,
     envio_id INT,
@@ -198,9 +163,6 @@ CREATE TABLE envio_asignacion (
     CONSTRAINT fk_envio_asignacion_asignacion FOREIGN KEY (asignacion_id) REFERENCES asignacion_ruta(asignacion_id)
 );
 
-
--- Tabla historial_envios-
---------------------------
 CREATE TABLE historial_envios (
     historial_envio_id INT,
     cliente_id INT,
