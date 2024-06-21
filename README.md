@@ -96,7 +96,8 @@ INSERT INTO asignacion_ruta (asignacion_id, ruta_id, conductor_id, vehiculo_id, 
 Descripción: Un administrador desea agregar un nuevo auxiliar de reparto a la base de datos.
 
 ```sql
-
+INSERT INTO auxiliar (auxiliar_id, nombre) VALUES
+(7, 'Frank Gonzalez');
 ```
 
 <h2> Caso de Uso 13: Asignar un Auxiliar a una Ruta</h2> 
@@ -106,12 +107,13 @@ Descripción: Un administrador desea asignar un auxiliar de reparto a una ruta e
 
 ```
 
-<h2> Caso de Uso 14: Registrar un Evento de Seguimiento para un
-Paquete</h2> 
+<h2> Caso de Uso 14: Registrar un Evento de Seguimiento para un Paquete</h2> 
+
 Descripción: Un administrador desea registrar un evento de seguimiento para un paquete.
 
 ```sql
-c
+INSERT INTO seguimiento (seguimiento_id, paquete_id, ubicacion, fecha, hora, estado) VALUES
+(7, 7, 'Montevideo', '2024-06-21', '10:30:00', 'En tránsito');
 ```
 
 <h2> Caso de Uso 15: Generar un Reporte de Envíos por Cliente</h2> 
@@ -119,19 +121,20 @@ Descripción: Un administrador desea generar un reporte de todos los envíos rea
 cliente específico.
 
 ```sql
-c
+
 ```
 <h2> Caso de Uso 16: Actualizar el Estado de un Paquete</h2> 
 Descripción: Un administrador desea actualizar el estado de un paquete específico.
 
 ```sql
-c
+UPDATE 
 ```
 <h2> Caso de Uso 17: Rastrear la Ubicación Actual de un Paquete</h2> 
 Descripción: Un administrador desea rastrear la ubicación actual de un paquete específico.
 
 ```sql
-c
+SELECT ubicacion 
+
 ```
 
 <h1> Casos Multitabla<h1>
