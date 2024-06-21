@@ -1,6 +1,6 @@
 <h1>LOGISTIGA BASE DE DATOS</h1>
 <h4>Creación de tablas</h4>
-![alt text](img/esquema.png)
+![alt text](esquema.png)
 <h2> Caso de Uso 1: Registrar un Nuevo País</h2>
 Descripción: Un administrador desea agregar un nuevo país a la base de datos.
 
